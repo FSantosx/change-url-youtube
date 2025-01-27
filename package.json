@@ -1,0 +1,14 @@
+{
+  "name": "change-url-youtube",
+  "version": "1.0.0",
+  "description": "App to change url youtube. /live to /watch?",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabio Santos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

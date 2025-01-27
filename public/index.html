@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Youtube URL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Digite algo...">
+        <span id="result"></span>
+        <button>Enviar</button>
+    </div>
+</body>
+
+<script>
+    const button = document.querySelector("button").addEventListener("click", () => {
+        const texto = document.querySelector("input").value;
+        const regexLive = new RegExp("/live/");
+        const regexVideoId = new RegExp("&");
+        const regexYoutube = new RegExp("youtube.com")
+
+        if(!regexYoutube.test(texto)){
+            alert("URL inválida! Insira um link do youtube")
+            return;
+        }
+
+        const [defaultUrl, videoId] = texto.split(regexLive);
+        const [id, _] = videoId.split(regexVideoId);
+        const newUrl = defaultUrl + "/watch?v=" + id
+
+        const span = document.getElementById("result")
+        span.innerText = newUrl;
+    });
+</script>
+</html>
